@@ -219,14 +219,14 @@ section {
 	border: 1px solid #969696;
 	padding: 5px 10px;
 	background: #d8d8d8;
-	font-size: 10px !important;
+	font-size: 12px !important;
 }
 .table tbody td {
 	text-align: left;
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
 	padding: 5px 10px;
-	font-size: 10px !important;
+	font-size: 12px !important;
 	vertical-align: top;
 }
 
