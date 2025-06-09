@@ -29,64 +29,66 @@ class Slider {
         this.container = document.getElementById(containerId);
         if (!this.container) return;
 
-        this.sliderItems = this.container.querySelectorAll('.slider__item');
+        // Go one level up from the slider container
+        this.root = this.container.closest('.content');
+
         this.sliderLine = this.container.querySelector('.slider__line');
-        this.sliderDots = this.container.querySelectorAll('.slider__dot');
-        this.sliderBtnNext = this.container.querySelector('.slider__btn-next');
-        this.sliderBtnPrev = this.container.querySelector('.slider__btn-prev');
+        this.sliderItems = this.container.querySelectorAll('.slider__item');
+        this.sliderDots = this.root.querySelectorAll('.slider__dot');
+        this.btnNext = this.root.querySelector('.slider__btn-next');
+        this.btnPrev = this.root.querySelector('.slider__btn-prev');
+
+        this.currentIndex = 0;
+        this.sliderWidth = 0;
 
         this.init();
     }
 
     init() {
-        window.addEventListener('resize', () => this.showSlide());
-        this.showSlide();
+        this.updateSize();
+        window.addEventListener('resize', () => this.updateSize());
 
-        this.sliderBtnNext?.addEventListener('click', () => this.nextSlide());
-        this.sliderBtnPrev?.addEventListener('click', () => this.prevSlide());
+        this.btnNext?.addEventListener('click', () => this.nextSlide());
+        this.btnPrev?.addEventListener('click', () => this.prevSlide());
 
         this.sliderDots?.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                this.sliderCount = index;
-                this.rollSlider();
-                this.updateDots();
+                this.currentIndex = index;
+                this.updateSlide();
             });
         });
+
+        this.updateSlide();
     }
 
-    showSlide() {
+    updateSize() {
         this.sliderWidth = this.container.offsetWidth;
-        this.sliderLine.style.width = this.sliderWidth * this.sliderItems.length + 'px';
-        this.sliderItems.forEach(item => item.style.width = this.sliderWidth + 'px');
-        this.rollSlider();
+        this.sliderItems.forEach(item => item.style.width = `${this.sliderWidth}px`);
+        this.sliderLine.style.width = `${this.sliderWidth * this.sliderItems.length}px`;
+        this.updateSlide();
     }
 
-    rollSlider() {
-        this.sliderLine.style.transform = `translateX(-${this.sliderCount * this.sliderWidth}px)`;
-    }
-
-    updateDots() {
+    updateSlide() {
+        this.sliderLine.style.transform = `translateX(-${this.currentIndex * this.sliderWidth}px)`;
         this.sliderDots.forEach(dot => dot.classList.remove('active-dot'));
-        if (this.sliderDots[this.sliderCount]) {
-            this.sliderDots[this.sliderCount].classList.add('active-dot');
+        if (this.sliderDots[this.currentIndex]) {
+            this.sliderDots[this.currentIndex].classList.add('active-dot');
         }
     }
 
     nextSlide() {
-        this.sliderCount++;
-        if (this.sliderCount >= this.sliderItems.length) this.sliderCount = 0;
-        this.rollSlider();
-        this.updateDots();
+        this.currentIndex = (this.currentIndex + 1) % this.sliderItems.length;
+        this.updateSlide();
     }
 
     prevSlide() {
-        this.sliderCount--;
-        if (this.sliderCount < 0) this.sliderCount = this.sliderItems.length - 1;
-        this.rollSlider();
-        this.updateDots();
+        this.currentIndex = (this.currentIndex - 1 + this.sliderItems.length) % this.sliderItems.length;
+        this.updateSlide();
     }
 }
 
-var unislider = new Slider('unislider');
-var multslider = new Slider('multslider');
-var expslider = new Slider('expslider');
+window.addEventListener('DOMContentLoaded', () => {
+    new Slider('unislider');
+    new Slider('multslider');
+    new Slider('expslider');
+});
