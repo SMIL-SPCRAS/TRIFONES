@@ -31,6 +31,7 @@
         <script src="./static/js/bulma-slider.min.js"></script>
         <script src="./static/js/comp-slider.js" defer></script>
         <script defer src="./static/js/fontawesome.all.min.js"></script>
+        <script src="./static/js/index.js"></script>
     </head>
     <body>
         <a id="btt-button">
@@ -135,7 +136,7 @@
                     <div class="column is-four-fifths">
                         <div class="content has-text-centered" style="position: relative;">
                             <h3 class="title is-3">Uni-modal Affective States Recognition</h3>
-                            <div class="slider" id="unicarousel">
+                            <div class="slider" id="unislider">
                                 <div class="slider__line">
                                     <div class="slider__item">
                                         <div class="content has-text-centered">
@@ -189,14 +190,13 @@
                 </div>
             </div>
         </section>
-
         <section class="section sepline">
             <div class="container is-full-screen">
                 <div class="columns is-centered has-text-centered">
                     <div class="column is-four-fifths">
                         <div class="content has-text-centered" style="position: relative;">
                             <h3 class="title is-3">Multi-Modal Affective States Recognition</h3>
-                            <div class="slider" id="multcarousel">
+                            <div class="slider" id="multslider">
                                 <div class="slider__line">
                                     <div class="slider__item">
                                         <div class="content has-text-centered">
@@ -307,7 +307,7 @@
                     <div class="column is-four-fifths">
                         <div class="content has-text-centered" style="position: relative;">
                             <h3 class="title is-3">Experimental Results</h3>
-                            <div class="slider" id="expcarousel">
+                            <div class="slider" id="expslider">
                                 <div class="slider__line">
                                     <div class="slider__item">
                                         <table class="table">
@@ -1107,75 +1107,557 @@
                         <div class="content has-text-centered">
                             <table class="table">
                                 <thead>
+                                    <tr class="has-text-center">
+                                        <th class="has-text-left">Fusion Strategy</th>
+                                        <th colspan="4">Emotion</th>
+                                        <th colspan="4">Sentiment</th>
+                                        <th></th>
+                                    </tr>
                                     <tr class="has-text-right">
-                                        <th class="has-text-left">Method</th>
-                                        <th>VoxCeleb2</th>
-                                        <th>BRAVE-MASKS</th>
+                                        <th></th>
+                                        <th>A<sup>7</sup>/&delta;</th>
+                                        <th>UAR<sup>7</sup>/&delta;</th>
+                                        <th>WF<sup>7</sup>/&delta;</th>
+                                        <th>MF<sup>7</sup>/&delta;</th>
+                                        <th>A<sup>3</sup>/&delta;</th>
+                                        <th>UAR<sup>3</sup>/&delta;</th>
+                                        <th>WF<sup>3</sup>/&delta;</th>
+                                        <th>MF<sup>3</sup>/&delta;</th>
+                                        <th>Average/&delta;</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <th colspan="3" class="centered">Gender recognition (UAR, %)</th>
+                                        <th colspan="10" class="centered">RAMAS corpus</th>
                                     </tr>
                                     <tr>
-                                        <td>Audio-based</td>
-                                        <td class="has-text-right">90.00</td>
-                                        <td class="has-text-right">86.22</td>
+                                        <td>DFS AV</td>
+                                        <td class="has-text-right">70.9/-0.8</td>
+                                        <td class="has-text-right">66.3/-2.7</td>
+                                        <td class="has-text-right"><strong>71.8/0.0</strong></td>
+                                        <td class="has-text-right">63.1/-1.8</td>
+                                        <td class="has-text-right">86.0/-4.7</td>
+                                        <td class="has-text-right">82.5/4.9</td>
+                                        <td class="has-text-right">87.4/-3.4</td>
+                                        <td class="has-text-right">68.9/-6.9</td>
+                                        <td class="has-text-right">74.6/-1.9</td>
                                     </tr>
                                     <tr>
-                                        <td>Video-based</td>
-                                        <td class="has-text-right">98.37</td>
-                                        <td class="has-text-right">94.44</td>
+                                        <td>DFS AT</td>
+                                        <td class="has-text-right">68.6/-3.1</td>
+                                        <td class="has-text-right">63.1/-5.9</td>
+                                        <td class="has-text-right">69.6/-2.2</td>
+                                        <td class="has-text-right">60.7/-4.2</td>
+                                        <td class="has-text-right">86.0/-4.7</td>
+                                        <td class="has-text-right">82.5/4.9</td>
+                                        <td class="has-text-right">87.8/-3.0</td>
+                                        <td class="has-text-right">68.2/-7.6</td>
+                                        <td class="has-text-right">73.3/-3.2</td>
                                     </tr>
                                     <tr>
-                                        <td>Early fusion</td>
-                                        <td class="has-text-right">98.90</td>
-                                        <td class="has-text-right">94.80</td>
+                                        <td>DFS VT</td>
+                                        <td class="has-text-right">47.3/-24.4</td>
+                                        <td class="has-text-right">38.0/-31.0</td>
+                                        <td class="has-text-right">41.6/-30.2</td>
+                                        <td class="has-text-right">31.0/-33.9</td>
+                                        <td class="has-text-right">79.8/-10.9</td>
+                                        <td class="has-text-right">62.1/-15.5</td>
+                                        <td class="has-text-right">81.6/-9.2</td>
+                                        <td class="has-text-right">58.5/-17.3</td>
+                                        <td class="has-text-right">55.0/-21.5</td>
                                     </tr>
                                     <tr>
-                                        <td>Intermediate fusion</td>
-                                        <td class="has-text-right">99.11</td>
-                                        <td class="has-text-right">94.95</td>
+                                        <td>TFS AVT</td>
+                                        <td class="has-text-right"><strong>71.3/-0.4</strong></td>
+                                        <td class="has-text-right">65.3/-3.7</td>
+                                        <td class="has-text-right"><strong>71.8/0.0</strong></td>
+                                        <td class="has-text-right">62.8/-2.1</td>
+                                        <td class="has-text-right">89.1/-1.6</td>
+                                        <td class="has-text-right">84.6/7.0</td>
+                                        <td class="has-text-right">90.0/-0.8</td>
+                                        <td class="has-text-right">73.0/-2.8</td>
+                                        <td class="has-text-right">76.0/-0.5</td>
                                     </tr>
                                     <tr>
-                                        <td>Late fusion</td>
-                                        <td class="has-text-right">99.02</td>
-                                        <td class="has-text-right">97.21</td>
+                                        <td>DFSLE AV</td>
+                                        <td class="has-text-right">70.5/-1.2</td>
+                                        <td class="has-text-right"><strong>68.1/-0.9</strong></td>
+                                        <td class="has-text-right">70.6/-1.2</td>
+                                        <td class="has-text-right"><strong>63.9/-1.0</strong></td>
+                                        <td class="has-text-right"><strong>90.7/0.0</strong></td>
+                                        <td class="has-text-right"><strong>85.6/8.0</strong></td>
+                                        <td class="has-text-right"><strong>91.4/0.6</strong></td>
+                                        <td class="has-text-right"><strong>74.8/-1.0</strong></td>
+                                        <td class="has-text-right"><strong>77.0/0.4</strong></td>
                                     </tr>
                                     <tr>
-                                        <th colspan="3" class="centered">Age estimation (MAE)</th>
+                                        <td>DFSLE AT</td>
+                                        <td class="has-text-right">39.1/-32.6</td>
+                                        <td class="has-text-right">35.2/-33.8</td>
+                                        <td class="has-text-right">26.5/-45.3</td>
+                                        <td class="has-text-right">18.3/-46.6</td>
+                                        <td class="has-text-right">74.8/-15.9</td>
+                                        <td class="has-text-right">58.7/-18.9</td>
+                                        <td class="has-text-right">77.3/-13.5</td>
+                                        <td class="has-text-right">54.8/-21.0</td>
+                                        <td class="has-text-right">48.1/-28.4</td>
                                     </tr>
                                     <tr>
-                                        <td>Audio-based</td>
-                                        <td class="has-text-right">9.91</td>
-                                        <td class="has-text-right">11.89</td>
+                                        <td>DFSLE VT</td>
+                                        <td class="has-text-right">40.7/-31.0</td>
+                                        <td class="has-text-right">30.6/-38.4</td>
+                                        <td class="has-text-right">29.1/-42.7</td>
+                                        <td class="has-text-right">20.2/-44.7</td>
+                                        <td class="has-text-right">77.1/-13.6</td>
+                                        <td class="has-text-right">60.3/-17.3</td>
+                                        <td class="has-text-right">79.4/-11.4</td>
+                                        <td class="has-text-right">56.5/-19.3</td>
+                                        <td class="has-text-right">49.3/-27.3</td>
                                     </tr>
                                     <tr>
-                                        <td>Video-based</td>
-                                        <td class="has-text-right">5.97</td>
-                                        <td class="has-text-right">8.71</td>
+                                        <td>TFSLE AVT</td>
+                                        <td class="has-text-right">47.7/-24.0</td>
+                                        <td class="has-text-right">41.4/-27.6</td>
+                                        <td class="has-text-right">37.6/-34.2</td>
+                                        <td class="has-text-right">29.2/-35.7</td>
+                                        <td class="has-text-right">81.8/-8.9</td>
+                                        <td class="has-text-right">63.5/-14.1</td>
+                                        <td class="has-text-right">83.3/-7.5</td>
+                                        <td class="has-text-right">60.0/-15.8</td>
+                                        <td class="has-text-right">55.5/-21.0</td>
                                     </tr>
                                     <tr>
-                                        <td>Early fusion</td>
-                                        <td class="has-text-right">5.80</td>
-                                        <td class="has-text-right">9.00</td>
+                                        <td>TFS A</td>
+                                        <td class="has-text-right">46.9/-24.8</td>
+                                        <td class="has-text-right">43.5/-25.5</td>
+                                        <td class="has-text-right">44.1/-27.7</td>
+                                        <td class="has-text-right">36.4/-28.5</td>
+                                        <td class="has-text-right">74.4/-16.3</td>
+                                        <td class="has-text-right">58.5/-19.1</td>
+                                        <td class="has-text-right">76.6/-14.2</td>
+                                        <td class="has-text-right">54.5/-21.3</td>
+                                        <td class="has-text-right">54.4/-22.2</td>
                                     </tr>
                                     <tr>
-                                        <td>Intermediate fusion</td>
-                                        <td class="has-text-right">5.68</td>
-                                        <td class="has-text-right">8.73</td>
+                                        <td>TFS V</td>
+                                        <td class="has-text-right"><strong>72.9/1.2</strong></td>
+                                        <td class="has-text-right"><strong>69.8/0.8</strong></td>
+                                        <td class="has-text-right"><strong>72.8/1.0</strong></td>
+                                        <td class="has-text-right"><strong>65.0/0.1</strong></td>
+                                        <td class="has-text-right">89.5/-1.2</td>
+                                        <td class="has-text-right">84.8/7.2</td>
+                                        <td class="has-text-right">90.4/-0.4</td>
+                                        <td class="has-text-right">73.3/-2.5</td>
+                                        <td class="has-text-right"><strong>77.3/0.8</td>
                                     </tr>
                                     <tr>
-                                        <td>Late fusion</td>
-                                        <td class="has-text-right">6.51</td>
-                                        <td class="has-text-right">7.23</td>
+                                        <td>TFS T</td>
+                                        <td class="has-text-right">26.0/-45.7</td>
+                                        <td class="has-text-right">21.4/-47.6</td>
+                                        <td class="has-text-right">17.2/-54.6</td>
+                                        <td class="has-text-right">11.7/-53.2</td>
+                                        <td class="has-text-right">57.0/-33.7</td>
+                                        <td class="has-text-right">46.7/-30.9</td>
+                                        <td class="has-text-right">59.0/-31.8</td>
+                                        <td class="has-text-right">42.3/-33.5</td>
+                                        <td class="has-text-right">35.1/-41.4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS AV</td>
+                                        <td class="has-text-right">72.5/0.8</td>
+                                        <td class="has-text-right">67.5/-1.5</td>
+                                        <td class="has-text-right"><strong>72.8/1.0</strong></td>
+                                        <td class="has-text-right"><strong>65.0/0.1</strong></td>
+                                        <td class="has-text-right"><strong>89.9/-0.8</strong></td>
+                                        <td class="has-text-right"><strong>85.1/7.5</strong></td>
+                                        <td class="has-text-right"><strong>90.5/-0.3</strong></td>
+                                        <td class="has-text-right"><strong>75.1/-0.7</strong></td>
+                                        <td class="has-text-right"><strong>77.3/0.8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS AT</td>
+                                        <td class="has-text-right">48.1/-23.6</td>
+                                        <td class="has-text-right">42.6/-26.4</td>
+                                        <td class="has-text-right">47.8/-24.0</td>
+                                        <td class="has-text-right">39.8/-25.1</td>
+                                        <td class="has-text-right">75.2/-15.5</td>
+                                        <td class="has-text-right">59.0/-18.6</td>
+                                        <td class="has-text-right">77.5/-13.3</td>
+                                        <td class="has-text-right">55.1/-20.7</td>
+                                        <td class="has-text-right">55.6/-20.9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS VT</td>
+                                        <td class="has-text-right">72.1/0.4</td>
+                                        <td class="has-text-right">68.8/-0.2</td>
+                                        <td class="has-text-right">72.5/0.7</td>
+                                        <td class="has-text-right">63.9/-1.0</td>
+                                        <td class="has-text-right">89.1/-1.6</td>
+                                        <td class="has-text-right">84.6/7.0</td>
+                                        <td class="has-text-right">90.4/-0.4</td>
+                                        <td class="has-text-right">71.4/-4.4</td>
+                                        <td class="has-text-right">76.6/0.1</td>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="10" class="centered">MELD corpus</th>
+                                    </tr>
+                                    <tr>
+                                        <td>DFS AV</td>
+                                        <td class="has-text-right">49.9/14.1</td>
+                                        <td class="has-text-right"><strong>31.4/12.0</strong></td>
+                                        <td class="has-text-right">49.6/14.5</td>
+                                        <td class="has-text-right"><strong>31.5/12.1</strong></td>
+                                        <td class="has-text-right">59.2/15.8</td>
+                                        <td class="has-text-right">55.9/13.9</td>
+                                        <td class="has-text-right">58.8/14.9</td>
+                                        <td class="has-text-right">56.0/14.6</td>
+                                        <td class="has-text-right">49.0/14.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DFS AT</td>
+                                        <td class="has-text-right">51.0/15.2</td>
+                                        <td class="has-text-right">30.9/11.5</td>
+                                        <td class="has-text-right"><strong>50.2/15.1</strong></td>
+                                        <td class="has-text-right">30.9/11.5</td>
+                                        <td class="has-text-right">59.3/15.9</td>
+                                        <td class="has-text-right">57.1/15.1</td>
+                                        <td class="has-text-right">59.4/15.5</td>
+                                        <td class="has-text-right">57.0/15.6</td>
+                                        <td class="has-text-right"><strong>49.5/14.4</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DFS VT</td>
+                                        <td class="has-text-right">51.9/16.1</td>
+                                        <td class="has-text-right">25.9/6.5</td>
+                                        <td class="has-text-right">46.9/11.8</td>
+                                        <td class="has-text-right">23.8/4.4</td>
+                                        <td class="has-text-right">60.3/16.9</td>
+                                        <td class="has-text-right"><strong>60.0/18.0</strong></td>
+                                        <td class="has-text-right">60.6/16.7</td>
+                                        <td class="has-text-right">58.3/16.9</td>
+                                        <td class="has-text-right">48.5/13.4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS AVT</td>
+                                        <td class="has-text-right">49.3/13.5</td>
+                                        <td class="has-text-right">28.7/9.3</td>
+                                        <td class="has-text-right">48.1/13.0</td>
+                                        <td class="has-text-right">29.0/9.6</td>
+                                        <td class="has-text-right">58.4/15.0</td>
+                                        <td class="has-text-right">55.1/13.1</td>
+                                        <td class="has-text-right">58.3/14.4</td>
+                                        <td class="has-text-right">55.4/14.0</td>
+                                        <td class="has-text-right">47.8/12.7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DFSLE AV</td>
+                                        <td class="has-text-right">41.4/5.6</td>
+                                        <td class="has-text-right">23.2/3.8</td>
+                                        <td class="has-text-right">40.8/5.7</td>
+                                        <td class="has-text-right">23.2/3.8</td>
+                                        <td class="has-text-right">51.0/7.6</td>
+                                        <td class="has-text-right">48.1/6.1</td>
+                                        <td class="has-text-right">50.9/7.0</td>
+                                        <td class="has-text-right">48.0/6.6</td>
+                                        <td class="has-text-right">40.8/5.8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DFSLE AT</td>
+                                        <td class="has-text-right">51.9/16.1</td>
+                                        <td class="has-text-right">25.2/5.8</td>
+                                        <td class="has-text-right">45.4/10.3</td>
+                                        <td class="has-text-right">21.0/1.6</td>
+                                        <td class="has-text-right"><strong>62.7/19.3</strong></td>
+                                        <td class="has-text-right">58.7/16.7</td>
+                                        <td class="has-text-right"><strong>62.1/18.2</strong></td>
+                                        <td class="has-text-right"><strong>59.2/17.8</strong></td>
+                                        <td class="has-text-right">48.3/13.2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DFSLE VT</td>
+                                        <td class="has-text-right">51.9/16.1</td>
+                                        <td class="has-text-right">25.5/6.1</td>
+                                        <td class="has-text-right">46.0/10.9</td>
+                                        <td class="has-text-right">21.7/2.3</td>
+                                        <td class="has-text-right">61.0/17.6</td>
+                                        <td class="has-text-right">58.7/16.7</td>
+                                        <td class="has-text-right">60.8/16.9</td>
+                                        <td class="has-text-right">58.0/16.6</td>
+                                        <td class="has-text-right">47.9/12.9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFSLE AVT</td>
+                                        <td class="has-text-right"><strong>52.7/16.9</strong></td>
+                                        <td class="has-text-right">25.1/5.7</td>
+                                        <td class="has-text-right">46.3/11.2</td>
+                                        <td class="has-text-right">22.5/3.1</td>
+                                        <td class="has-text-right">60.4/17.0</td>
+                                        <td class="has-text-right">58.5/16.5</td>
+                                        <td class="has-text-right">60.2/16.3</td>
+                                        <td class="has-text-right">57.7/16.3</td>
+                                        <td class="has-text-right">47.9/12.9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS A</td>
+                                        <td class="has-text-right">41.3/5.5</td>
+                                        <td class="has-text-right">22.6/3.2</td>
+                                        <td class="has-text-right">39.9/4.8</td>
+                                        <td class="has-text-right">22.1/2.7</td>
+                                        <td class="has-text-right">48.4/5.0</td>
+                                        <td class="has-text-right">45.1/3.1</td>
+                                        <td class="has-text-right">48.4/4.5</td>
+                                        <td class="has-text-right">45.1/3.7</td>
+                                        <td class="has-text-right">39.1/4.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS V</td>
+                                        <td class="has-text-right">37.6/1.8</td>
+                                        <td class="has-text-right">17.9/-1.5</td>
+                                        <td class="has-text-right">35.3/0.2</td>
+                                        <td class="has-text-right">18.0/-1.4</td>
+                                        <td class="has-text-right">42.4/-1.0</td>
+                                        <td class="has-text-right">40.1/-1.9</td>
+                                        <td class="has-text-right">42.0/-1.9</td>
+                                        <td class="has-text-right">39.1/-2.3</td>
+                                        <td class="has-text-right">34.1/-1.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS T</td>
+                                        <td class="has-text-right"><strong>55.1/19.3</strong></td>
+                                        <td class="has-text-right">26.7/7.3</td>
+                                        <td class="has-text-right">49.3/14.2</td>
+                                        <td class="has-text-right">25.8/6.4</td>
+                                        <td class="has-text-right"><strong>62.6/19.2</strong></td>
+                                        <td class="has-text-right"><strong>58.1/16.1</strong></td>
+                                        <td class="has-text-right"><strong>61.4/17.5</strong></td>
+                                        <td class="has-text-right"><strong>57.8/16.4</strong></td>
+                                        <td class="has-text-right">49.6/14.6</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS AV</td>
+                                        <td class="has-text-right">36.5/0.7</td>
+                                        <td class="has-text-right">21.5/2.1</td>
+                                        <td class="has-text-right">37.1/2.0</td>
+                                        <td class="has-text-right">21.1/1.7</td>
+                                        <td class="has-text-right">47.5/4.1</td>
+                                        <td class="has-text-right">44.7/2.7</td>
+                                        <td class="has-text-right">47.4/3.5</td>
+                                        <td class="has-text-right">44.4/3.0</td>
+                                        <td class="has-text-right">37.5/2.5</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS AT</td>
+                                        <td class="has-text-right">54.0/18.2</td>
+                                        <td class="has-text-right"><strong>33.0/13.6</strong></td>
+                                        <td class="has-text-right"><strong>52.7/17.6</strong></td>
+                                        <td class="has-text-right"><strong>33.2/13.8</strong></td>
+                                        <td class="has-text-right">60.5/17.1</td>
+                                        <td class="has-text-right">57.7/15.7</td>
+                                        <td class="has-text-right">60.4/16.5</td>
+                                        <td class="has-text-right">57.3/15.9</td>
+                                        <td class="has-text-right"><strong>51.1/16.1</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS VT</td>
+                                        <td class="has-text-right">47.2/11.4</td>
+                                        <td class="has-text-right">25.9/6.5</td>
+                                        <td class="has-text-right">45.2/10.1</td>
+                                        <td class="has-text-right">26.3/6.9</td>
+                                        <td class="has-text-right">55.5/12.1</td>
+                                        <td class="has-text-right">50.1/8.1</td>
+                                        <td class="has-text-right">54.3/10.4</td>
+                                        <td class="has-text-right">50.5/9.1</td>
+                                        <td class="has-text-right">44.4/9.3</td>
+                                    </tr>
+                                    <tr class="has-text-right">
+                                        <th></th>
+                                        <th>mA<sup>6</sup>/&delta;</th>
+                                        <th>mWA<sup>6</sup>/&delta;</th>
+                                        <th>mWF<sup>6</sup>/&delta;</th>
+                                        <th>mMF<sup>6</sup>/&delta;</th>
+                                        <th>A<sup>3</sup>/&delta;</th>
+                                        <th>UAR<sup>3</sup>/&delta;</th>
+                                        <th>WF<sup>3</sup>/&delta;</th>
+                                        <th>MF<sup>3</sup>/&delta;</th>
+                                        <th></th>
+                                    </tr>
+                                    <tr>
+                                        <th colspan="10" class="centered">CMU-MOSEI corpus</th>
+                                    </tr>
+                                    <tr>
+                                        <td>DFS AV</td>
+                                        <td class="has-text-right">77.5/8.8</td>
+                                        <td class="has-text-right"><strong>57.3/1.3</strong></td>
+                                        <td class="has-text-right">76.0/4.3</td>
+                                        <td class="has-text-right">57.2/2.1</td>
+                                        <td class="has-text-right">57.9/11.8</td>
+                                        <td class="has-text-right">53.3/12.8</td>
+                                        <td class="has-text-right">58.2/12.8</td>
+                                        <td class="has-text-right">53.7/13.3</td>
+                                        <td class="has-text-right">61.4/8.4</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DFS AT</td>
+                                        <td class="has-text-right">78.2/9.5</td>
+                                        <td class="has-text-right">57.2/1.2</td>
+                                        <td class="has-text-right">76.2/4.5</td>
+                                        <td class="has-text-right">56.9/1.8</td>
+                                        <td class="has-text-right">59.3/13.2</td>
+                                        <td class="has-text-right">53.2/12.7</td>
+                                        <td class="has-text-right">58.6/13.2</td>
+                                        <td class="has-text-right">53.5/13.1</td>
+                                        <td class="has-text-right">61.7/8.7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DFS VT</td>
+                                        <td class="has-text-right"><strong>79.7/11.0</strong></td>
+                                        <td class="has-text-right">56.8/0.8</td>
+                                        <td class="has-text-right"><strong>76.6/4.9</strong></td>
+                                        <td class="has-text-right">56.1/1.0</td>
+                                        <td class="has-text-right">60.1/14.0</td>
+                                        <td class="has-text-right">54.3/13.8</td>
+                                        <td class="has-text-right">59.7/14.3</td>
+                                        <td class="has-text-right">54.9/14.5</td>
+                                        <td class="has-text-right"><strong>62.3/9.3</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS AVT</td>
+                                        <td class="has-text-right">77.7/9.0</td>
+                                        <td class="has-text-right"><strong>57.3/1.3</strong></td>
+                                        <td class="has-text-right">76.2/4.5</td>
+                                        <td class="has-text-right"><strong>57.3/2.2</strong></td>
+                                        <td class="has-text-right">58.7/12.6</td>
+                                        <td class="has-text-right">53.5/13.0</td>
+                                        <td class="has-text-right">58.7/13.3</td>
+                                        <td class="has-text-right">54.0/13.6</td>
+                                        <td class="has-text-right">61.7/8.7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DFSLE AV</td>
+                                        <td class="has-text-right">77.7/9.0</td>
+                                        <td class="has-text-right">55.5/-0.5</td>
+                                        <td class="has-text-right">75.5/3.8</td>
+                                        <td class="has-text-right">55.4/0.3</td>
+                                        <td class="has-text-right">58.2/12.1</td>
+                                        <td class="has-text-right">52.9/12.4</td>
+                                        <td class="has-text-right">58.0/12.6</td>
+                                        <td class="has-text-right">53.4/13.0</td>
+                                        <td class="has-text-right">60.8/7.8</td>
+                                    </tr>
+                                    <tr>
+                                        <td>DFSLE AT</td>
+                                        <td class="has-text-right">79.3/10.6</td>
+                                        <td class="has-text-right">56.3/0.3</td>
+                                        <td class="has-text-right">76.0/4.3</td>
+                                        <td class="has-text-right">55.3/0.2</td>
+                                        <td class="has-text-right">60.6/14.5</td>
+                                        <td class="has-text-right"><strong>55.0/14.5</strong></td>
+                                        <td class="has-text-right"><strong>60.2/14.8</strong></td>
+                                        <td class="has-text-right"><strong>55.4/15.0</strong></td>
+                                        <td class="has-text-right"><strong>62.3/9.3</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>DFSLE VT</td>
+                                        <td class="has-text-right">79.3/10.6</td>
+                                        <td class="has-text-right">56.7/0.7</td>
+                                        <td class="has-text-right">76.1/4.4</td>
+                                        <td class="has-text-right">55.6/0.5</td>
+                                        <td class="has-text-right">60.7/14.6</td>
+                                        <td class="has-text-right">53.6/13.1</td>
+                                        <td class="has-text-right">59.4/14.0</td>
+                                        <td class="has-text-right">54.2/13.8</td>
+                                        <td class="has-text-right">61.9/8.9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFSLE AVT</td>
+                                        <td class="has-text-right">79.5/10.8</td>
+                                        <td class="has-text-right">55.8/-0.2</td>
+                                        <td class="has-text-right">75.9/4.2</td>
+                                        <td class="has-text-right">54.7/-0.4</td>
+                                        <td class="has-text-right"><strong>61.0/14.9</strong></td>
+                                        <td class="has-text-right">53.9/13.4</td>
+                                        <td class="has-text-right">59.7/14.3</td>
+                                        <td class="has-text-right">54.5/14.1</td>
+                                        <td class="has-text-right">61.9/8.9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS A</td>
+                                        <td class="has-text-right">77.8/9.1</td>
+                                        <td class="has-text-right">58.2/2.2</td>
+                                        <td class="has-text-right">76.1/4.4</td>
+                                        <td class="has-text-right">57.1/2.0</td>
+                                        <td class="has-text-right">58.4/12.3</td>
+                                        <td class="has-text-right">54.1/13.6</td>
+                                        <td class="has-text-right">58.8/13.4</td>
+                                        <td class="has-text-right">54.5/14.1</td>
+                                        <td class="has-text-right">61.9/8.9</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS V</td>
+                                        <td class="has-text-right">70.7/2.0</td>
+                                        <td class="has-text-right">57.2/1.2</td>
+                                        <td class="has-text-right">72.3/0.6</td>
+                                        <td class="has-text-right">56.1/1.0</td>
+                                        <td class="has-text-right">46.7/0.6</td>
+                                        <td class="has-text-right">40.5/0.0</td>
+                                        <td class="has-text-right">45.4/0.0</td>
+                                        <td class="has-text-right">40.4/0.0</td>
+                                        <td class="has-text-right">53.7/0.7</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS T</td>
+                                        <td class="has-text-right"><strong>79.0/10.3</strong></td>
+                                        <td class="has-text-right">55.7/-0.3</td>
+                                        <td class="has-text-right">75.4/3.7</td>
+                                        <td class="has-text-right">54.7/-0.4</td>
+                                        <td class="has-text-right"><strong>61.3/15.2</strong></td>
+                                        <td class="has-text-right"><strong>55.5/15.0</strong></td>
+                                        <td class="has-text-right"><strong>60.8/15.4</strong></td>
+                                        <td class="has-text-right"><strong>56.3/15.9</strong></td>
+                                        <td class="has-text-right"><strong>62.3/9.3</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS AV</td>
+                                        <td class="has-text-right">75.6/6.9</td>
+                                        <td class="has-text-right"><strong>57.9/1.9</strong></td>
+                                        <td class="has-text-right">75.2/3.5</td>
+                                        <td class="has-text-right">57.6/2.5</td>
+                                        <td class="has-text-right">56.8/10.7</td>
+                                        <td class="has-text-right">50.1/9.6</td>
+                                        <td class="has-text-right">55.9/10.5</td>
+                                        <td class="has-text-right">50.6/10.2</td>
+                                        <td class="has-text-right">60.0/7.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS AT</td>
+                                        <td class="has-text-right">77.5/8.8</td>
+                                        <td class="has-text-right">57.7/1.7</td>
+                                        <td class="has-text-right"><strong>76.2/4.5</strong></td>
+                                        <td class="has-text-right"><strong>57.7/2.6</strong></td>
+                                        <td class="has-text-right">59.3/13.2</td>
+                                        <td class="has-text-right">54.2/13.7</td>
+                                        <td class="has-text-right">59.2/13.8</td>
+                                        <td class="has-text-right">54.7/14.3</td>
+                                        <td class="has-text-right">62.1/9.1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>TFS VT</td>
+                                        <td class="has-text-right">76.3/7.6</td>
+                                        <td class="has-text-right">56.6/0.6</td>
+                                        <td class="has-text-right">75.4/3.7</td>
+                                        <td class="has-text-right">56.7/1.6</td>
+                                        <td class="has-text-right">51.2/5.1</td>
+                                        <td class="has-text-right">48.3/7.8</td>
+                                        <td class="has-text-right">52.1/6.7</td>
+                                        <td class="has-text-right">48.3/7.9</td>
+                                        <td class="has-text-right">58.1/5.1</td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                         <div class="content has-text-justified">
                             <p>
-                                Experimental results obtained for the text-based affective states recognition. Performance measure superscript shows the number of classes.
+                                Experimental results obtained for the multi-modal affective states recognition. Performance measure superscript shows the number of classes. The &delta; values are calculated relative to the performance of the video-based model. A refers to acoustic features. V to visual features. T to text (linguistic) features.
                             </p>
                         </div>
                     </div>
