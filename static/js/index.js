@@ -30,22 +30,57 @@ $(document).ready(function() {
 
     });
 
-    var options = {
+
+		// Initialize all div with carousel class
+    var unicarousel = bulmaCarousel.attach('#unicarousel', {
 			slidesToScroll: 1,
 			slidesToShow: 3,
 			loop: true,
 			infinite: true,
 			autoplay: false,
 			autoplaySpeed: 3000,
-    }
-
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
+    });
 
     // Loop on each carousel initialized
-    for(var i = 0; i < carousels.length; i++) {
+    for(var i = 0; i < unicarousel.length; i++) {
     	// Add listener to  event
-    	carousels[i].on('before:show', state => {
+    	unicarousel[i].on('before:show', state => {
+    		console.log(state);
+    	});
+    }
+
+    // Initialize all div with carousel class
+    var expcarousel = bulmaCarousel.attach('#expcarousel', {
+			slidesToScroll: 1,
+			slidesToShow: 3,
+			loop: true,
+			infinite: true,
+			autoplay: false,
+			autoplaySpeed: 3000,
+    });
+
+    // Loop on each carousel initialized
+    for(var i = 0; i < expcarousel.length; i++) {
+    	// Add listener to  event
+    	expcarousel[i].on('before:show', state => {
+    		console.log(state);
+    	});
+    }
+
+    // Initialize all div with carousel class
+    var multcarousel = bulmaCarousel.attach('#multcarousel', {
+			slidesToScroll: 1,
+			slidesToShow: 3,
+			loop: true,
+			infinite: true,
+			autoplay: false,
+			autoplaySpeed: 3000,
+    });
+
+    // Loop on each carousel initialized
+    for(var i = 0; i < multcarousel.length; i++) {
+    	// Add listener to  event
+    	multcarousel[i].on('before:show', state => {
     		console.log(state);
     	});
     }
