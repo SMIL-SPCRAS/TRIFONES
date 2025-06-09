@@ -217,16 +217,16 @@ section {
 	font-weight: bold;
 	text-align: left;
 	border: 1px solid #969696;
-	padding: 10px 15px;
+	padding: 5px 10px;
 	background: #d8d8d8;
-	font-size: 14px;
+	font-size: 10px !important;
 }
 .table tbody td {
 	text-align: left;
 	border-left: 1px solid #ddd;
 	border-right: 1px solid #ddd;
-	padding: 10px 15px;
-	font-size: 14px;
+	padding: 5px 10px;
+	font-size: 10px !important;
 	vertical-align: top;
 }
 
