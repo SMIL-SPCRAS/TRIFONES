@@ -1,0 +1,259 @@
+body {
+  font-family: 'Noto Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --tw-bg-opacity: 1;
+  background-color: rgba(23,23,23,var(--tw-bg-opacity));
+}
+
+.hero-body {
+  padding-bottom: 0;
+}
+
+section {
+  background-color: #fafafa;
+}
+
+.section-wrapper {
+  padding: 0 24px;
+}
+
+.sepline::after {
+  content: '';
+  display: block;
+  padding: 0;
+  margin: auto;
+  margin-top: 50px;
+  max-width: 1200px;
+  border-bottom: 1px solid #363636;
+}
+
+.slider {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.slider__line {
+  /* background-color: black; */
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  transition: all .3s;
+}
+
+.slider__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: all .3s;
+}
+
+.slider__btn-prev {
+  position: absolute;
+  left: -10%;
+  top: 50%;
+  z-index: 999;
+  transform: translateY(-50%);
+}
+
+.slider__btn-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  right: -10%;
+  top: 50%;
+}
+
+.slider__btn-prev path{
+  cursor: pointer;
+  transition: all .3s;
+}
+
+
+.slider__btn-next path {
+  cursor: pointer;
+  transition: all .3s;
+}
+
+.slider__btn-next path:hover {
+  fill: #363636;
+}
+
+.slider__btn-prev path:hover {
+  fill: #363636;
+}
+
+.slider__btn-next path:active {
+  fill: #000000;
+}
+
+.slider__btn-prev path:active {
+  fill: #000000;
+}
+
+.slider__wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 40px;
+  column-gap: 10px;
+}
+
+.slider__dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color .3s ease;
+}
+
+.active-dot {
+  background-color: #363636;
+}
+
+.slider__dot:hover {
+  background-color: #363636;
+}
+
+.slider__dot:active {
+  background-color: #000000;
+}
+
+@media screen and (min-width: 700px) {
+  .table {
+    width: 100%;
+    border: none;
+  }
+
+  .table .t_num {
+    width: 5%;
+    text-align: center;
+  }
+
+  #btt-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    box-shadow: 1px 1px 5px 1px rgba(122, 122, 122, 0.5);
+    background-color: #ffffff;
+    border-radius: .3rem;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: ease .3s,
+    opacity .5s, visibility .5s;
+    opacity: 0;
+    visibility: visible;
+    z-index: 1000;
+  }
+
+  .btt-hover {
+    fill: #363636;
+  }
+
+  #btt-button::after {
+    color: #fff;
+  }
+  #btt-button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+  }
+
+  #btt-button:active {
+    background-color: #ebebeb;
+  }
+
+  #btt-button.show {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  #btt-button {
+    visibility:hidden
+  }
+
+  .table {
+    max-width: 100%;
+    border: collapse;
+  }
+
+  .table .t_num {
+    width: 3%;
+    text-align: center;
+  }
+
+  .slider__btn-prev {
+    left: 2%;
+  }
+
+  .slider__btn-next {
+    right: 2%;
+  }
+}
+
+
+.table {
+    border-bottom: 1px solid #969696;
+}
+
+.table thead th {
+	font-weight: bold;
+	text-align: left;
+	border: 1px solid #969696;
+	padding: 10px 15px;
+	background: #d8d8d8;
+	font-size: 14px;
+}
+.table tbody td {
+	text-align: left;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	padding: 10px 15px;
+	font-size: 14px;
+	vertical-align: top;
+}
+
+.table thead tr th:first-child, .table tbody tr td:first-child {
+	border-left: none;
+}
+.table thead tr th:last-child, .table tbody tr td:last-child {
+	border-right: none;
+}
+.table tbody tr:nth-child(even){
+	background: #f3f3f3;
+}
+.table .centered th {
+  text-align: center;
+  vertical-align: middle;
+}
+
+.table .phrase__title {
+  width: 45%;
+}
+
+.footer .icon-link {
+    font-size: 25px;
+    color: #000;
+}
+
+.link-block a {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
