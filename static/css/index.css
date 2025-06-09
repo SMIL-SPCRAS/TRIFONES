@@ -213,7 +213,7 @@ section {
     border-bottom: 1px solid #969696;
 }
 
-.table thead th {
+.table thead th, .table tbody th {
 	font-weight: bold;
 	text-align: left;
 	border: 1px solid #969696;
